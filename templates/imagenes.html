@@ -1,0 +1,98 @@
+{% load static %}
+<html>
+<head>
+	<title>Estadistica</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="{% static 'css/main2.css' %}">
+	<link rel="stylesheet" href="{% static 'css/util2.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+	<h1 class="sys">Estadística de imágenes</h1>
+	<div class="sys2"></div>
+	<div class="limiter">
+		 <div class="container-table100">
+			 <div class="wrap-table100 tamaño">
+				 <button class="boton1" onclick="exportTableToExcel('tblData')">Descargar estadística</button>
+				 <a class="boton2" href="http://192.168.50.100:8000/estadistica/">Actualizar estadística</a>
+				 <div class="table100 ver3 m-b-110">
+					 <table id="tblData">
+					     <div class="table100-head">
+							 <thead>
+								 <tr class="row100 head">
+									<th scope="col" class="cell100 column1">Mes proceso</th>
+									<th scope="col" class="cell100 column2">Mes imagen</th>
+									<th scope="col"	class="cell100 column3">Imagenes procesadas</th>
+									<th scope="col" class="cell100 column4">Imagenes aprobadas</th>
+									<th scope="col" class="cell100 column5">Imagenes borradas</th>
+									<th scope="col" class="cell100 column6">Cantidad usuario</th>
+                                    <th scope="col" class="cell100 column7">Promedio usuario</th>
+                                    <th scope="col" class="cell100 column8">Promedio imagenes</th>
+                                    <th scope="col" class="cell100 column9">Porcentaje aprobadas</th>
+                                    <th scope="col" class="cell100 column10">Porcentaje borradas</th>
+								</tr>
+							</thead>
+						 </div>
+					       <div class="table100-body js-pscroll">
+							<tbody>
+								{% for imagen in imagenes %}
+								<tr class="row100 body">
+									<td class="cell100 column1">{{imagen.mesproceso}}</td>
+									<td class="cell100 column2">{{imagen.mesimagen}}</td>
+									<td class="cell100 column3">{{imagen.imagenesprocesadas}}</td>
+									<td class="cell100 column4">{{imagen.imagenesaprobadas}}</td>
+									<td class="cell100 column5">{{imagen.imagenesborradas}}</td>
+									<td class="cell100 column6">{{imagen.cantidausuario}}</td>
+                                    <td class="cell100 column7">{{imagen.promediousuario}}</td>
+                                    <td class="cell100 column8">{{imagen.promedioimagenes}}</td>
+                                    <td class="cell100 column9">{{imagen.porcentajeaprobadas}}%</td>
+                                    <td class="cell100 column10">{{imagen.porcentajeborradas}}%</td>
+								</tr>
+								{% endfor %}
+							 </tbody>
+						   </div>
+					 </table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<tr class="row100 body">
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

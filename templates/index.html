@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Datos tránsito</title>
+      <meta charset="UTF-8">
+      <link rel="icon" type="image/png" href="/img/icon/favicon.ico">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="Jason Rodd">
+      <meta name="copyright" content="Tránsto Seguro S.A.">
+      <meta name="robots" content="noindex">
+      <meta name="robots" content="nofollows">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="Normalize/normalize.css">
+      <link rel="shortcut icon" href="Iconoseimg/himg.jpg" type="image/x-icon">
+      <link rel="stylesheet" href="micuenta.css">
+    </head>
+<body>
+    <header>
+      <div class="container" >
+        <div class="container-box" >
+          <a href="index.html" class="title"><img src="img/icon/favicon.ico" alt="LogoTransitoSeguro">Transito Seguro</a>
+        </div>
+      </div>
+      <div class="border-style"></div>
+    </header>
+    <div class="contact-borders">
+        <div class="contact-borders__data">
+          <h1>Iniciar Sesión</h1>
+        </div>
+
+        <form class="user" type=text action="bienvenido.html" method="POST">
+            {% csrf_token %}
+            <input type="text" id="idusername" name="username" placeholder="Usuario">
+            <input type="password" id="id_password" name="password" placeholder="Contraseña">
+            <input type="submit" value="Iniciar">
+        </form>
+    </div>
+
+    </body>
+
+</html>
